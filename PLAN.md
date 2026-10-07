@@ -98,7 +98,8 @@ FreelanceMotivator/
 - Done when: a real call with your token prints your freelance tasks.
 
 ### Phase 3: RSS collector
-- `fetchFeedItems(url)` fetches and parses RSS 2.0 and Atom, then returns the latest 3 `FeedItem { title, link, date, summary }`.
+- `fetchFeedItems(entry)` fetches and parses RSS 2.0 and Atom, then returns the latest 3 `FeedItem { title, link, date, summary }`.
+- A `feeds.json` entry that starts with `http(s)://` is used as the feed URL. Any other entry is a keyword turned into a French Google News RSS search.
 - Strip HTML and truncate the summary to about 300 characters. Decode entities.
 - `fetchAllFeeds()` runs the 3 feeds with `Promise.allSettled`, so one broken feed only drops its own items.
 - Tests: saved RSS and Atom fixtures for parsing, truncation, and sorting by date.
